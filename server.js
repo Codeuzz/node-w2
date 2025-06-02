@@ -1,9 +1,21 @@
 import express from "express";
+import { requestLogger } from "./middlewares/requestLogger.js";
 
 const app = express();
+app.use(requestLogger);
 const PORT = 3000;
 
-app.get("/", (req, res) => {
+const middleware1 = (req, res, next) => {
+  console.log("on passe par middleware 1 et tout va bien");
+  next();
+};
+
+// const middleware2 = (req, res, next) => {
+//   console.log("-");
+//   res.status(401).send("interdit");
+// };
+
+app.get("/", middleware1, (req, res) => {
   res.send("bienvenue page d'accueil");
 });
 
