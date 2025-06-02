@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { getAllPosts } from "../controllers/posts.controller";
+import controller from "../controllers/posts.controller";
 
 const router = Router();
 
 // get all posts
-router.get("/", getAllPosts);
+router.get("/", controller.getAll);
 
 // get a specific post
 router.get("/:id", (req, res) => {});

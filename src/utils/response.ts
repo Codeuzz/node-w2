@@ -2,7 +2,7 @@ import { Response } from "express";
 
 export const APIResponse = (
   response: Response,
-  data: object[],
+  data: any,
   message: string,
   status = 200
 ) => {
