@@ -1,8 +1,10 @@
 import express from "express";
 import { requestLogger } from "./middlewares/requestLogger.js";
+import router from "./routes/index.js";
 
 const app = express();
 app.use(requestLogger);
+app.use("/", router);
 const PORT = 3000;
 
 const middleware1 = (req, res, next) => {
@@ -10,10 +12,10 @@ const middleware1 = (req, res, next) => {
   next();
 };
 
-// const middleware2 = (req, res, next) => {
-//   console.log("-");
-//   res.status(401).send("interdit");
-// };
+const middleware2 = (req, res, next) => {
+  console.log("-");
+  res.status(401).send("interdit");
+};
 
 app.get("/", middleware1, (req, res) => {
   res.send("bienvenue page d'accueil");
