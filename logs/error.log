@@ -49,3 +49,34 @@ params: belinda@caca.com,belindd,Cacahaha44.
     ]
   }
 ]
+[05-06-2025 21:51:28] - [[31merror[39m]: Erreur lors de la récupération de l'utilisateur: Failed query: select "id", "username", "email" from "users" where "users"."id" = $1 limit $2
+params: belinda,1
+[05-06-2025 23:16:01] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, $4, default, $5) returning "id", "title"
+params: L'Étranger,Albert Camus,1942,d3f5a2d1-bb77-4e0f-9f01-0f2c3fbd8347,a1a54132-7b14-4cbf-a1e4-1be9b72e55bf
+[05-06-2025 23:16:52] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "categoryId"
+    ],
+    "message": "Required"
+  }
+]
+[05-06-2025 23:17:28] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "categoryId"
+    ],
+    "message": "Required"
+  }
+]
+[05-06-2025 23:25:04] - [[31merror[39m]: Erreur lors de la récupération des livres: Your "borrower->id" field references a column "users"."id", but the table "users" is not part of the query! Did you forget to join it?
+[05-06-2025 23:29:52] - [[31merror[39m]: Erreur lors de la récupération du livre: Failed query: select "books"."id", "books"."title", "books"."author", "books"."published_year", "users"."id", "users"."username" from "books" left join "users" on "books"."user_id" = "users"."id" where "books"."id" = $1 limit $2
+params: Albert Camus,1
+[05-06-2025 23:30:54] - [[31merror[39m]: Erreur lors de la récupération du livre: Failed query: select "books"."id", "books"."title", "books"."author", "books"."published_year", "users"."id", "users"."username" from "books" left join "users" on "books"."user_id" = "users"."id" where "books"."id" = $1 limit $2
+params: Albert Camus,1

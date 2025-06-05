@@ -1,5 +1,5 @@
 import { Router } from "express";
-import controller from "../controllers/users.controller";
+import controller from "../controllers/books.controller";
 
 // import { isAuthenticated } from "../middlewares";
 

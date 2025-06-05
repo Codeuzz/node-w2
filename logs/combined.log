@@ -84,3 +84,57 @@ params: belinda@caca.com,belindd,Cacahaha44.
 [05-06-2025 17:34:47] - [[32minfo[39m]: [GET] Récupérer un utilisateur
 [05-06-2025 17:35:42] - [[32minfo[39m]: [GET] Récupérer un utilisateur
 [05-06-2025 17:35:43] - [[32minfo[39m]: [GET] Récupérer un utilisateur
+[05-06-2025 17:35:48] - [[32minfo[39m]: [GET] Récupérer l'utilisateur c4231634-b263-4ae2-abbb-28cf928dba30
+[05-06-2025 21:49:20] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[05-06-2025 21:50:35] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[05-06-2025 21:51:27] - [[32minfo[39m]: [GET] Récupérer l'utilisateur belinda
+[05-06-2025 21:51:28] - [[31merror[39m]: Erreur lors de la récupération de l'utilisateur: Failed query: select "id", "username", "email" from "users" where "users"."id" = $1 limit $2
+params: belinda,1
+[05-06-2025 23:12:37] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[05-06-2025 23:12:44] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[05-06-2025 23:13:55] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[05-06-2025 23:15:31] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[05-06-2025 23:16:01] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, $4, default, $5) returning "id", "title"
+params: L'Étranger,Albert Camus,1942,d3f5a2d1-bb77-4e0f-9f01-0f2c3fbd8347,a1a54132-7b14-4cbf-a1e4-1be9b72e55bf
+[05-06-2025 23:16:52] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "categoryId"
+    ],
+    "message": "Required"
+  }
+]
+[05-06-2025 23:17:28] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "categoryId"
+    ],
+    "message": "Required"
+  }
+]
+[05-06-2025 23:17:47] - [[32minfo[39m]: [POST] Créer un livre
+[05-06-2025 23:18:12] - [[32minfo[39m]: [DELETE] Supprimer le livre b15f3e5f-2fdf-4149-8f0e-c3f97225f0cd
+[05-06-2025 23:18:27] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[05-06-2025 23:18:34] - [[32minfo[39m]: [POST] Créer un livre
+[05-06-2025 23:18:39] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[05-06-2025 23:22:03] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[05-06-2025 23:22:14] - [[32minfo[39m]: [GET] Récupérer le livre cb866fff-8806-4b85-93a6-42122ffa3785
+[05-06-2025 23:22:20] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[05-06-2025 23:25:04] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[05-06-2025 23:25:04] - [[31merror[39m]: Erreur lors de la récupération des livres: Your "borrower->id" field references a column "users"."id", but the table "users" is not part of the query! Did you forget to join it?
+[05-06-2025 23:26:32] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[05-06-2025 23:27:35] - [[32minfo[39m]: [GET] Récupérer le livre cb866fff-8806-4b85-93a6-42122ffa3785
+[05-06-2025 23:29:25] - [[32minfo[39m]: [GET] Récupérer le livre cb866fff-8806-4b85-93a6-42122ffa3785
+[05-06-2025 23:29:52] - [[32minfo[39m]: [GET] Récupérer le livre Albert Camus
+[05-06-2025 23:29:52] - [[31merror[39m]: Erreur lors de la récupération du livre: Failed query: select "books"."id", "books"."title", "books"."author", "books"."published_year", "users"."id", "users"."username" from "books" left join "users" on "books"."user_id" = "users"."id" where "books"."id" = $1 limit $2
+params: Albert Camus,1
+[05-06-2025 23:30:53] - [[32minfo[39m]: [GET] Récupérer le livre Albert Camus
+[05-06-2025 23:30:54] - [[31merror[39m]: Erreur lors de la récupération du livre: Failed query: select "books"."id", "books"."title", "books"."author", "books"."published_year", "users"."id", "users"."username" from "books" left join "users" on "books"."user_id" = "users"."id" where "books"."id" = $1 limit $2
+params: Albert Camus,1
+[05-06-2025 23:30:57] - [[32minfo[39m]: [GET] Récupérer tous les livres

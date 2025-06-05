@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { APIResponse } from "../utils";
 import logger from "../utils/logger";
-import { userModel } from "../models/users.model";
+import { usersModel } from "../models/users.model";
 import { userRegisterValidation } from "../validations/user";
 import { hashPassword } from "../utils/password";
 
@@ -9,7 +9,7 @@ const usersController = {
   getAll: async (req: Request, res: Response) => {
     try {
       logger.info("[GET] Récupérer tout les utilisateurs");
-      const users = await userModel.getAll();
+      const users = await usersModel.getAll();
       APIResponse(res, users, "OK");
     } catch (error: any) {
       logger.error(
@@ -28,7 +28,7 @@ const usersController = {
     try {
       const { email } = req.params;
       logger.info("[GET] Récupérer un utilisateur");
-      const user = await userModel.getByEmail(email);
+      const user = await usersModel.getByEmail(email);
       if (!user) return APIResponse(res, null, "utilisateur inexistant", 404);
       APIResponse(res, user, "OK");
     } catch (err: any) {
@@ -48,7 +48,7 @@ const usersController = {
     try {
       const { id } = req.params;
       logger.info(`[GET] Récupérer l'utilisateur ${id}`);
-      const user = await userModel.getById(id);
+      const user = await usersModel.getById(id);
       if (!user) return APIResponse(res, null, "Utilisateur inexistant", 404);
       APIResponse(res, user, "OK", 200);
     } catch (error: any) {
@@ -64,7 +64,7 @@ const usersController = {
       const { username, email, password } = userRegisterValidation.parse(
         req.body
       );
-      const [emailAlreadyExists] = await userModel.getByEmail(email);
+      const [emailAlreadyExists] = await usersModel.getByEmail(email);
       if (emailAlreadyExists) {
         return APIResponse(
           res,
@@ -84,7 +84,7 @@ const usersController = {
         );
       }
 
-      const [newUser] = await userModel.create({
+      const [newUser] = await usersModel.create({
         username,
         email,
         password: hash,
@@ -111,7 +111,7 @@ const usersController = {
     try {
       const { id } = req.params;
       logger.info(`[DELETE] Supprimer l'utilisateur ${id}`);
-      const deleted = await userModel.delete(id);
+      const deleted = await usersModel.delete(id);
       if (!deleted)
         return APIResponse(res, null, "Utilisateur non trouvé", 404);
       APIResponse(res, deleted, "Utilisateur supprimé");

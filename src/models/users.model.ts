@@ -4,7 +4,7 @@ import { users } from "../schemas/users.schema";
 import { eq } from "drizzle-orm";
 import logger from "../utils/logger";
 
-export const userModel = {
+export const usersModel = {
   getAll: () => {
     try {
       return db
