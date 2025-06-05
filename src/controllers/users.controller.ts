@@ -23,6 +23,42 @@ const usersController = {
       );
     }
   },
+
+  getByEmail: async (req: Request, res: Response) => {
+    try {
+      const { email } = req.params;
+      logger.info("[GET] Récupérer un utilisateur");
+      const user = await userModel.getByEmail(email);
+      if (!user) return APIResponse(res, null, "utilisateur inexistant", 404);
+      APIResponse(res, user, "OK");
+    } catch (err: any) {
+      logger.error(
+        "Erreur lors de la récupération de l'utilisateur: " + err.message
+      );
+      APIResponse(
+        res,
+        null,
+        "Erreur lors de la récupération de l'utilisateur",
+        500
+      );
+    }
+  },
+
+  getById: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      logger.info(`[GET] Récupérer l'utilisateur ${id}`);
+      const user = await userModel.getById(id);
+      if (!user) return APIResponse(res, null, "Utilisateur inexistant", 404);
+      APIResponse(res, user, "OK", 200);
+    } catch (error: any) {
+      logger.error(
+        "Erreur lors de la récupération de l'utilisateur: " + error.message
+      );
+      APIResponse(res, null, "Erreur serveur", 500);
+    }
+  },
+
   create: async (req: Request, res: Response) => {
     try {
       const { username, email, password } = userRegisterValidation.parse(
@@ -71,24 +107,19 @@ const usersController = {
       );
     }
   },
-
-  getByEmail: async (req: Request, res: Response) => {
+  delete: async (req: Request, res: Response) => {
     try {
-      const { email } = req.params;
-      logger.info("[GET] Récupérer un utilisateur");
-      const user = await userModel.getByEmail(email);
-      if (!user) return APIResponse(res, null, "utilisateur inexistant", 404);
-      APIResponse(res, user, "OK");
-    } catch (err: any) {
+      const { id } = req.params;
+      logger.info(`[DELETE] Supprimer l'utilisateur ${id}`);
+      const deleted = await userModel.delete(id);
+      if (!deleted)
+        return APIResponse(res, null, "Utilisateur non trouvé", 404);
+      APIResponse(res, deleted, "Utilisateur supprimé");
+    } catch (error: any) {
       logger.error(
-        "Erreur lors de la récupération de l'utilisateur: " + err.message
+        "Erreur lors de la suppression de l'utilisateur: " + error.message
       );
-      APIResponse(
-        res,
-        null,
-        "Erreur lors de la récupération de l'utilisateur",
-        500
-      );
+      APIResponse(res, null, "Erreur serveur", 500);
     }
   },
 };

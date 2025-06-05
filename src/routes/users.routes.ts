@@ -8,11 +8,8 @@ const router = Router();
 // GET http:///localhost:3000/users -> récupérer tout les users
 router.get("/", controller.getAll);
 
-// GET http:///localhost:3000/users/jean@gmail.com -> récupérer un post en fonction de son id
-router.get("/:email", controller.getByEmail);
-
 // GET http:///localhost:3000/users/25 -> récupérer un post en fonction de son id
-// router.get("/:id", controller.get);
+router.get("/:id", controller.getById);
 
 // [POST] -     http://localhost:3000/users -> créer un post
 router.post("/", controller.create);
@@ -21,6 +18,6 @@ router.post("/", controller.create);
 // router.put("/:id", controller.update);
 
 // [DELETE] -     http://localhost:3000/users/25 -> supprimer un post
-// router.delete("/:id", controller.delete);
+router.delete("/:id", controller.delete);
 
 export default router;
