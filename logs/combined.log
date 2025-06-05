@@ -315,3 +315,7 @@ params: The Great Gatsby,F. Scott Fitzgerald,1925,,
 [06-06-2025 01:07:32] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
 [06-06-2025 01:07:36] - [[32minfo[39m]: [GET] Récupérer l'utilisateur a1a54132-7b14-4cbf-a1e4-1be9b72e55bf
 [06-06-2025 01:07:53] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[06-06-2025 01:22:51] - [[32minfo[39m]: [POST] Créer un utilisateur
+[06-06-2025 01:23:24] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[06-06-2025 01:28:06] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[06-06-2025 01:31:00] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs

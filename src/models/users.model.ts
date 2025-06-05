@@ -28,6 +28,7 @@ export const usersModel = {
         .select({
           id: users.id,
           username: users.username,
+          password: users.password,
         })
         .from(users)
         .where(eq(users.email, email))

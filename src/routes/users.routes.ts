@@ -1,12 +1,13 @@
 import { Router } from "express";
 import controller from "../controllers/users.controller";
+import { authMiddleWare } from "../middlewares";
 
 // import { isAuthenticated } from "../middlewares";
 
 const router = Router();
 
 // GET http:///localhost:3000/users
-router.get("/", controller.getAll);
+router.get("/", authMiddleWare, controller.getAll);
 
 // GET http:///localhost:3000/users/25
 router.get("/:id", controller.getById);
