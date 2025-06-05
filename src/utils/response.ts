@@ -4,7 +4,7 @@ export const APIResponse = (
   response: Response,
   data: any,
   message: string,
-  status = 200
+  status: number = 200
 ) => {
   response.status(status).json({
     message,
