@@ -15,6 +15,13 @@
       "when": 1749136671943,
       "tag": "0001_steep_the_hunter",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1749165256233,
+      "tag": "0002_nebulous_sauron",
+      "breakpoints": true
     }
   ]
 }
