@@ -8,6 +8,13 @@
       "when": 1749126088136,
       "tag": "0000_thick_silhouette",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1749136671943,
+      "tag": "0001_steep_the_hunter",
+      "breakpoints": true
     }
   ]
 }
