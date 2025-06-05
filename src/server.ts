@@ -1,0 +1,27 @@
+import express from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import { env } from "./config/env";
+import router from "./routes";
+import { requestLogger } from "./utils/requestLogger";
+
+const app = express();
+const { PORT, ORIGIN } = env;
+
+app.use(
+  cors({
+    origin: ORIGIN,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(requestLogger);
+
+app.use("/", router);
+
+app.listen(PORT, () => {
+  console.log("Le serveur est en écoute sur: http://localhost:" + PORT);
+});

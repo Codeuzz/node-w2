@@ -1,0 +1,51 @@
+[05-06-2025 14:53:44] - [[31merror[39m]: Erreur lors de la récupération de l'utilisateur: [
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Adresse email invalide",
+    "path": [
+      "email"
+    ]
+  }
+]
+[05-06-2025 14:54:27] - [[31merror[39m]: Erreur lors de la récupération de l'utilisateur: [
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Adresse email invalide",
+    "path": [
+      "email"
+    ]
+  }
+]
+[05-06-2025 14:54:37] - [[31merror[39m]: Erreur lors de la création de l'utilisateur: [
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Adresse email invalide",
+    "path": [
+      "email"
+    ]
+  }
+]
+[05-06-2025 14:54:52] - [[31merror[39m]: Erreur lors de la création de l'utilisateur: Failed query: insert into "users" ("id", "email", "username", "password") values (default, $1, $2, $3) returning "id", "username"
+params: belinda@caca.com,belinda,Cacahaha44.
+[05-06-2025 14:55:36] - [[31merror[39m]: Erreur lors de la création de l'utilisateur: Failed query: insert into "users" ("id", "email", "username", "password") values (default, $1, $2, $3) returning "id", "username"
+params: belinda@caca.com,belinda,Cacahaha44.
+[05-06-2025 14:57:29] - [[31merror[39m]: Erreur lors de la création de l'utilisateur: Failed query: insert into "users" ("id", "email", "username", "password") values (default, $1, $2, $3) returning "id", "username"
+params: belinda@caca.com,belindaa,Cacahaha44.
+[05-06-2025 14:57:43] - [[31merror[39m]: Erreur lors de la création de l'utilisateur: Failed query: insert into "users" ("id", "email", "username", "password") values (default, $1, $2, $3) returning "id", "username"
+params: belinda@caca.com,belindd,Cacahaha44.
+[05-06-2025 15:08:36] - [[31merror[39m]: Erreur lors de la création de l'utilisateur: [
+  {
+    "code": "too_small",
+    "minimum": 6,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "L'username doit contenir au moins 6 caractères ",
+    "path": [
+      "username"
+    ]
+  }
+]
