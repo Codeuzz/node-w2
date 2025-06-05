@@ -1,8 +1,9 @@
 import { db } from "../config/db";
 import { NewUser } from "../entities/User";
 import { users } from "../schemas/users.schema";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import logger from "../utils/logger";
+import { books } from "../schemas";
 
 export const usersModel = {
   getAll: () => {
@@ -45,9 +46,15 @@ export const usersModel = {
           id: users.id,
           username: users.username,
           email: users.email,
+          borrowedBooks:
+            sql`json_agg(json_build_object('id', ${books.id}, 'title', ${books.title}))`.as(
+              "borrowedBooks"
+            ),
         })
         .from(users)
+        .leftJoin(books, eq(users.id, books.userId))
         .where(eq(users.id, id))
+        .groupBy(users.id)
         .limit(1);
     } catch (err: any) {
       logger.error(

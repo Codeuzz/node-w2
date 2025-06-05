@@ -33,18 +33,13 @@ const booksController = {
 
   create: async (req: Request, res: Response) => {
     try {
-      const {
-        title,
-        author,
-        publishedYear,
-        userId,
-        // categoryId,
-      } = bookRegisterValidation.parse(req.body);
+      const { title, author, publishedYear, userId, categoryId } =
+        bookRegisterValidation.parse(req.body);
 
       const [newBook] = await booksModel.create({
         title,
         author,
-        // categoryId,
+        categoryId,
         userId,
         publishedYear,
       });
@@ -65,6 +60,22 @@ const booksController = {
       APIResponse(res, deleted, "Livre supprimé");
     } catch (error: any) {
       logger.error("Erreur lors de la suppression du livre: " + error.message);
+      APIResponse(res, null, "Erreur serveur", 500);
+    }
+  },
+  update: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const updateData = req.body;
+
+      const [updatedBook] = await booksModel.update(id, updateData);
+
+      if (!updatedBook) return APIResponse(res, null, "Livre non trouvé", 404);
+
+      logger.info(`[PATCH] Mise à jour du livre ${id}`);
+      APIResponse(res, updatedBook, "Livre mis à jour", 200);
+    } catch (error: any) {
+      logger.error("Erreur lors de la mise à jour du livre: " + error.message);
       APIResponse(res, null, "Erreur serveur", 500);
     }
   },

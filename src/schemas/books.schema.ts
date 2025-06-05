@@ -8,9 +8,9 @@ export const books = pgTable("books", {
   title: text("title").notNull().unique(),
   author: text("author").notNull(),
   publishedYear: text("published_year"),
-  // categoryId: uuid("category_id").references(() => categories.id, {
-  //   onDelete: "set null",
-  // }),
+  categoryId: uuid("category_id").references(() => categories.id, {
+    onDelete: "set null",
+  }),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
   userId: uuid("user_id").references(() => users.id, { onDelete: "set null" }),
 });

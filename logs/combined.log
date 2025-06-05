@@ -147,3 +147,171 @@ params: Albert Camus,1
 [05-06-2025 23:42:55] - [[32minfo[39m]: [POST] Créer une catégorie
 [05-06-2025 23:43:07] - [[32minfo[39m]: [POST] Créer une catégorie
 [05-06-2025 23:43:15] - [[32minfo[39m]: [GET] Récupérer toutes les catégories
+[06-06-2025 00:11:54] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[06-06-2025 00:12:42] - [[31merror[39m]: Erreur lors de la mise à jour du livre; Failed query: update "books" set  where "books"."id" = $1 returning "id", "title", "author", "published_year"
+params: cb866fff-8806-4b85-93a6-42122ffa3785
+[06-06-2025 00:12:42] - [[31merror[39m]: Erreur lors de la mise à jour du livre: Impossible de mettre à jour le livre
+[06-06-2025 00:14:26] - [[32minfo[39m]: [PATCH] Mise à jour du livre cb866fff-8806-4b85-93a6-42122ffa3785
+[06-06-2025 00:16:01] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[06-06-2025 00:16:06] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[06-06-2025 00:17:19] - [[32minfo[39m]: [PATCH] Mise à jour du livre cb866fff-8806-4b85-93a6-42122ffa3785
+[06-06-2025 00:19:10] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "publishedYear"
+    ],
+    "message": "Expected string, received number"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "categoryId"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "userId"
+    ],
+    "message": "Required"
+  }
+]
+[06-06-2025 00:20:20] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "publishedYear"
+    ],
+    "message": "Expected string, received number"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "userId"
+    ],
+    "message": "Required"
+  }
+]
+[06-06-2025 00:20:46] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "publishedYear"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+[06-06-2025 00:20:53] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, default, default, default) returning "id", "title"
+params: The Great Gatsby,F. Scott Fitzgerald,1925
+[06-06-2025 00:45:23] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, $4, default, $5) returning "id", "title"
+params: The Great Gatsby,F. Scott Fitzgerald,1925,,
+[06-06-2025 00:46:38] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, $4, default, $5) returning "id", "title"
+params: The Great Gatsby,F. Scott Fitzgerald,1925,,
+[06-06-2025 00:47:15] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "categoryId"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "userId"
+    ],
+    "message": "Required"
+  }
+]
+[06-06-2025 00:48:00] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, $4, default, $5) returning "id", "title"
+params: The Great Gatsby,F. Scott Fitzgerald,1925,,
+[06-06-2025 00:52:53] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "categoryId"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "userId"
+    ],
+    "message": "Required"
+  }
+]
+[06-06-2025 00:53:33] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "categoryId"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "userId"
+    ],
+    "message": "Required"
+  }
+]
+[06-06-2025 00:54:03] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, $4, default, $5) returning "id", "title"
+params: The Great Gatsby,F. Scott Fitzgerald,1925,,
+[06-06-2025 00:55:01] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, $4, default, $5) returning "id", "title"
+params: The Great Gatsby,F. Scott Fitzgerald,1925,,
+[06-06-2025 00:55:27] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, $4, default, $5) returning "id", "title"
+params: The Great Gatsby,F. Scott Fitzgerald,1925,,
+[06-06-2025 00:56:06] - [[31merror[39m]: Erreur lors de la création du livre: Failed query: insert into "books" ("id", "title", "author", "published_year", "category_id", "created_at", "user_id") values (default, $1, $2, $3, $4, default, $5) returning "id", "title"
+params: The Great Gatsby,F. Scott Fitzgerald,1925,,
+[06-06-2025 00:56:14] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[06-06-2025 00:56:51] - [[32minfo[39m]: [GET] Récupérer toutes les catégories
+[06-06-2025 00:57:08] - [[32minfo[39m]: [POST] Créer un livre
+[06-06-2025 00:57:27] - [[31merror[39m]: Erreur lors de la création du livre: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "publishedYear"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+[06-06-2025 00:57:38] - [[32minfo[39m]: [POST] Créer un livre
+[06-06-2025 00:58:00] - [[32minfo[39m]: [POST] Créer un livre
+[06-06-2025 00:58:07] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[06-06-2025 00:58:57] - [[32minfo[39m]: [POST] Créer un livre
+[06-06-2025 00:59:01] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[06-06-2025 00:59:08] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[06-06-2025 01:03:49] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[06-06-2025 01:07:32] - [[32minfo[39m]: [GET] Récupérer tout les utilisateurs
+[06-06-2025 01:07:36] - [[32minfo[39m]: [GET] Récupérer l'utilisateur a1a54132-7b14-4cbf-a1e4-1be9b72e55bf
+[06-06-2025 01:07:53] - [[32minfo[39m]: [GET] Récupérer tous les livres

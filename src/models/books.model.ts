@@ -1,5 +1,5 @@
 import { db } from "../config/db";
-import { books, users } from "../schemas";
+import { books, categories, users } from "../schemas";
 import { eq } from "drizzle-orm";
 import logger from "../utils/logger";
 import { NewBook } from "../entities/Book";
@@ -13,6 +13,7 @@ export const booksModel = {
           id: books.id,
           title: books.title,
           author: books.author,
+          category: categories.name,
           publishedYear: books.publishedYear,
           borrower: {
             id: users.id,
@@ -20,7 +21,8 @@ export const booksModel = {
           },
         })
         .from(books)
-        .leftJoin(users, eq(books.userId, users.id));
+        .leftJoin(users, eq(books.userId, users.id))
+        .leftJoin(categories, eq(books.categoryId, categories.id));
     } catch (err: any) {
       logger.error(
         `Erreur lors de la récupération des utilisateurs; ${err.message}`
@@ -36,6 +38,7 @@ export const booksModel = {
           id: books.id,
           title: books.title,
           author: books.author,
+          category: categories.name,
           publishedYear: books.publishedYear,
           borrower: {
             id: users.id,
@@ -45,6 +48,7 @@ export const booksModel = {
         .from(books)
         .where(eq(books.id, id))
         .leftJoin(users, eq(books.userId, users.id))
+        .leftJoin(categories, eq(books.categoryId, categories.id))
         .limit(1);
     } catch (err: any) {
       logger.error(
@@ -58,7 +62,13 @@ export const booksModel = {
     try {
       return db
         .insert(books)
-        .values(book)
+        .values({
+          title: book.title,
+          author: book.author,
+          publishedYear: book.publishedYear,
+          userId: book.userId,
+          categoryId: book.categoryId,
+        })
         .returning({ id: books.id, title: books.title });
     } catch (err: any) {
       logger.error(`Erreur lors de la création du livre; ${err.message}`);
@@ -74,6 +84,18 @@ export const booksModel = {
     } catch (err: any) {
       logger.error(`Erreur lors de la suppression du livre; ${err.message}`);
       throw new Error("Impossible de supprimer le livre");
+    }
+  },
+  update: async (id: string, data: Partial<Omit<NewBook, "id">>) => {
+    try {
+      return await db
+        .update(books)
+        .set(data)
+        .where(eq(books.id, id))
+        .returning();
+    } catch (err: any) {
+      logger.error(`Erreur lors de la mise à jour du livre; ${err.message}`);
+      throw new Error("Impossible de mettre à jour le livre");
     }
   },
 };

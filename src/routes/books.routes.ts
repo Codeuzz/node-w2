@@ -11,6 +11,9 @@ router.get("/", controller.getAll);
 // GET http:///localhost:3000/users/25
 router.get("/:id", controller.getById);
 
+// PATCH http:///localhost:3000/users/25
+router.patch("/:id", controller.update);
+
 // [POST] -     http://localhost:3000/users
 router.post("/", controller.create);
 
