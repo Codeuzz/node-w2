@@ -138,3 +138,12 @@ params: Albert Camus,1
 [05-06-2025 23:30:54] - [[31merror[39m]: Erreur lors de la récupération du livre: Failed query: select "books"."id", "books"."title", "books"."author", "books"."published_year", "users"."id", "users"."username" from "books" left join "users" on "books"."user_id" = "users"."id" where "books"."id" = $1 limit $2
 params: Albert Camus,1
 [05-06-2025 23:30:57] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[05-06-2025 23:39:32] - [[32minfo[39m]: [GET] Récupérer tous les livres
+[05-06-2025 23:40:28] - [[32minfo[39m]: [GET] Récupérer une catégorie
+[05-06-2025 23:41:14] - [[32minfo[39m]: [GET] Récupérer toutes les catégories
+[05-06-2025 23:42:03] - [[32minfo[39m]: [POST] Créer une catégorie
+[05-06-2025 23:42:40] - [[32minfo[39m]: [POST] Créer une catégorie
+[05-06-2025 23:42:49] - [[32minfo[39m]: [POST] Créer une catégorie
+[05-06-2025 23:42:55] - [[32minfo[39m]: [POST] Créer une catégorie
+[05-06-2025 23:43:07] - [[32minfo[39m]: [POST] Créer une catégorie
+[05-06-2025 23:43:15] - [[32minfo[39m]: [GET] Récupérer toutes les catégories
