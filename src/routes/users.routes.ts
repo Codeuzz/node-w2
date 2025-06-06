@@ -11,9 +11,6 @@ router.get("/", controller.getAll);
 // GET http:///localhost:3000/users/25
 router.get("/:id", controller.getById);
 
-// [POST] -     http://localhost:3000/users
-router.post("/", controller.create);
-
 // [DELETE] -     http://localhost:3000/users/25
 router.delete("/:id", controller.delete);
 
