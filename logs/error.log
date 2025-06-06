@@ -230,3 +230,14 @@ params: The Great Gatsby,F. Scott Fitzgerald,1925,,
     "message": "Expected string, received number"
   }
 ]
+[06-06-2025 02:07:17] - [[31merror[39m]: Erreur lors de la création de l'utilisateur: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "username"
+    ],
+    "message": "Required"
+  }
+]
